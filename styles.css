@@ -3,20 +3,21 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background: linear-gradient(to bottom, pink, black);
     color: #333;
+    overflow-x: hidden;
 }
 
 header {
     background-color: #333;
     color: #fff;
     padding: 1rem;
+    text-align: right; /* Alinha o header à direita */
 }
 
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     gap: 1rem;
     margin: 0;
     padding: 0;
@@ -28,12 +29,14 @@ nav ul li a {
     padding: 0.5rem 1rem;
     background-color: #555;
     border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #777;
+    background-color: #ff69b4; /* Rosa para hover */
 }
 
+/* Carrossel */
 .carousel {
     display: flex;
     align-items: center;
@@ -64,6 +67,11 @@ nav ul li a:hover {
     color: white;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel button.prev {
@@ -74,105 +82,137 @@ nav ul li a:hover {
     right: 0;
 }
 
-.game-section {
+/* Informação sobre moda */
+.fashion-info {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.fashion-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff69b4;
+}
+
+.fashion-info p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Animação das borboletas */
+.butterfly {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-image: url('/imagens/borboleta.png');
+    background-size: cover;
+    animation: fly 4s linear infinite;
+}
+
+@keyframes fly {
+    from {
+        transform: translate(0, 0) rotate(0);
+    }
+    to {
+        transform: translate(100px, -200px) rotate(360deg);
+    }
+}
+/* Coleção Exclusiva */
+.exclusive-collection {
     text-align: center;
     margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    width: 80%;
 }
 
-.game-section #game {
-    margin-top: 1rem;
+.exclusive-collection h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff69b4;
 }
 
-#game button.item {
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.exclusive-collection p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
 }
 
-#game button.item:hover {
-    background-color: #0056b3;
-}
-
-#game #preview {
-    margin-top: 1rem;
-    background-color: #e8e8e8;
-    padding: 1rem;
-    border-radius: 4px;
-}
-
-/* Estilos para a página Exclusivos */
 .exclusive-items {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    margin: 2rem auto;
-    width: 90%;
+    gap: 2rem;
 }
 
-.exclusive-items .item {
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-    width: 250px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.exclusive-items .item img {
-    width: 100%;
+.exclusive-item img {
+    width: 200px;
     height: auto;
-    border-radius: 4px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
-.exclusive-items .item h2 {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
+.exclusive-item img:hover {
+    transform: scale(1.05);
 }
 
-.exclusive-items .item p {
-    font-size: 1rem;
-    color: #007BFF;
-    font-weight: bold;
-}
-
-/* Estilos para a página Contato */
-.contact-form {
-    max-width: 600px;
+/* Formulário de Contato */
+.contact {
+    text-align: center;
     margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    width: 80%;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ff69b4;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.contact form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
 }
 
-.contact-form label {
-    font-weight: bold;
+.contact label {
+    font-size: 1rem;
+    color: #333;
 }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
+.contact input, .contact textarea {
+    width: 80%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
 }
 
-.contact-form button {
-    align-self: flex-start;
-    padding: 0.5rem 1rem;
-    background-color: #007BFF;
+.contact button {
+    background-color: #ff69b4;
     color: white;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.contact-form button:hover {
-    background-color: #0056b3;
+.contact button:hover {
+    background-color: #d6336c;
 }
+

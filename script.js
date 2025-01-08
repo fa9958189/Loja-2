@@ -17,17 +17,14 @@ document.querySelector(".next").addEventListener("click", () => {
 // Inicialização do carrossel
 slides[currentSlide].classList.add("active");
 
-// Mini jogo de roupas
-const chosenTop = document.getElementById("chosen-top");
-const chosenBottom = document.getElementById("chosen-bottom");
+// Efeito de borboletas ao clicar na página
+document.body.addEventListener("click", (e) => {
+    const butterfly = document.createElement("div");
+    butterfly.className = "butterfly";
+    butterfly.style.left = `${e.pageX}px`;
+    butterfly.style.top = `${e.pageY}px`;
+    document.body.appendChild(butterfly);
 
-document.querySelectorAll("#game .item").forEach(button => {
-    button.addEventListener("click", () => {
-        const type = button.dataset.type;
-        if (type === "top") {
-            chosenTop.textContent = `Parte de cima: ${button.textContent}`;
-        } else if (type === "bottom") {
-            chosenBottom.textContent = `Parte de baixo: ${button.textContent}`;
-        }
-    });
+    // Remover borboleta após animação
+    setTimeout(() => butterfly.remove(), 4000);
 });
